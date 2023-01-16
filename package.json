@@ -9,11 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@material-tailwind/react": "^1.2.5",
     "@next/font": "13.1.2",
+    "@supabase/supabase-js": "^2.4.0",
+    "@uiw/codemirror-extensions-langs": "^4.19.6",
+    "@uiw/codemirror-theme-github": "^4.19.6",
+    "@uiw/codemirror-theme-material": "^4.19.6",
+    "@uiw/react-codemirror": "^4.19.6",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.2",
     "next": "13.1.2",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-html-parser": "^2.0.2",
+    "react-icons": "^4.7.1",
+    "tailwind-scrollbar": "^2.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4"
   }
 }
