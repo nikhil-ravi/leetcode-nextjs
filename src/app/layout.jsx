@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="https://github.com/nikhil-ravi">
+                    <Link href="https://github.com/ChrisLawrieNikhilRavi/leetcode-nextjs">
                       <AiFillGithub className="cursor-pointer text-xl" />
                     </Link>
                   </li>
