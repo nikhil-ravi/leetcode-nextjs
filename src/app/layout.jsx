@@ -5,9 +5,11 @@ import { SiGooglescholar } from "react-icons/si";
 import { Providers } from "./Providers";
 
 import { DarkModeButton } from "./DarkModeButton";
+import Head from "./head";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      {/* <Head /> */}
       <body>
         <Providers>
           <main className="dark:bg-primary-800 min-h-screen px-10 flex-col overflow-y-scroll">
