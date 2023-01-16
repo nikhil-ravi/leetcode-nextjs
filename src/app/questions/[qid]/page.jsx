@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 
 export default async function QuestionsPage({ params: { qid } }) {
   const { data } = await getQuestion(qid);
-  if (data.length === 0) notFound();
+  if (!data) notFound();
   const { data: similarQuestions } = await getSimilarQuestions(qid);
   return (
     <div className="flex-col w-full mx-auto">
