@@ -3,12 +3,32 @@ import Link from "next/link";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { SiGooglescholar } from "react-icons/si";
 import { Providers } from "./Providers";
-
+import Script from "next/script";
+import * as gtag from "../lib/gtag";
 import { DarkModeButton } from "./DarkModeButton";
 import Head from "./head";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+      />
+      <Script
+        id="gtag-init"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${gtag.GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
       {/* <Head /> */}
       <body>
         <Providers>
