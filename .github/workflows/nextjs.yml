@@ -22,7 +22,11 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
-
+  
+env:
+  NEXT_PUBLIC_SUPABASE_URL: ${{secrets.NEXT_PUBLIC_SUPABASE_URL}}
+  NEXT_PUBLIC_SUPABASE_KEY: ${{secrets.NEXT_PUBLIC_SUPABASE_KEY}}
+  
 jobs:
   # Build job
   build:
