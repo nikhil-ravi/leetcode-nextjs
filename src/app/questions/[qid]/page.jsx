@@ -5,6 +5,8 @@ import { SolutionWrapper } from "./SolutionWrapper";
 import { notFound } from "next/navigation";
 
 export default async function QuestionsPage({ params: { qid } }) {
+  if (typeof qid !== "bigint") notFound();
+
   const { data } = await getQuestion(qid);
   if (!data) notFound();
   const { data: similarQuestions } = await getSimilarQuestions(qid);
