@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap");
 html,
 body {
   padding: 0;
@@ -22,6 +22,10 @@ a {
 @font-face {
   font-family: "burtons";
   src: url("../../public/Burtons.otf");
+}
+@font-face {
+  font-family: "Sedgwick Ave Display";
+  src: url("../../public/SedgwickAveDisplay-Regular.ttf");
 }
 
 p {

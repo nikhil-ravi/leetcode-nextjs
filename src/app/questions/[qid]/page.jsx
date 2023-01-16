@@ -2,9 +2,11 @@ import { getQuestion, getSimilarQuestions } from "@/utils/controllers";
 import QuestionNavigator from "./QuestionNavigator";
 import { QuestionBody } from "./QuestionBody";
 import { SolutionWrapper } from "./SolutionWrapper";
+import { notFound } from "next/navigation";
 
 export default async function QuestionsPage({ params: { qid } }) {
   const { data } = await getQuestion(qid);
+  if (data.length === 0) notFound();
   const { data: similarQuestions } = await getSimilarQuestions(qid);
   return (
     <div className="flex-col w-full mx-auto">

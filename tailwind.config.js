@@ -14,6 +14,7 @@ module.exports = withMT({
     extend: {
       fontFamily: {
         burtons: "burtons",
+        sedgwick: "Sedgwick Ave Display",
       },
       colors: {
         primary: {
