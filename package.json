@@ -16,6 +16,7 @@
     "@uiw/codemirror-theme-github": "^4.19.6",
     "@uiw/codemirror-theme-material": "^4.19.6",
     "@uiw/react-codemirror": "^4.19.6",
+    "encoding": "^0.1.13",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.2",
     "next": "13.1.2",
