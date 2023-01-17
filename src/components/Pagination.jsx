@@ -36,7 +36,7 @@ const Pagination = ({
     }
   }
   return (
-    <nav className="flex justify-center items-center">
+    <nav className="flex justify-center items-center my-4">
       <ul className="inline-flex gap-2 list-none m-0 p-0">
         {pageNumbersToShow.indexOf(1) < 0 && (
           <>

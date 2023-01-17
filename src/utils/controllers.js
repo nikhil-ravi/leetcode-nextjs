@@ -3,7 +3,7 @@ import supabase from "./supabase";
 export async function getQuestionsList(term) {
   const dataPromise =
     term.length === 0
-      ? supabase.rpc("all_questions_list")
+      ? supabase.rpc("all_questions_list", { term })
       : supabase.rpc("queried_questions_list", { term });
   let { data, error } = await dataPromise;
   if (error) {

@@ -4,6 +4,7 @@ import tailwindConfig from "../../tailwind.config.js";
 import Pagination from "./Pagination";
 import Link from "next/link.js";
 import TopicTag from "./TopicTags.jsx";
+import QuestionCard from "./QuestionCard.jsx";
 
 const QuestionsList = ({ questions }) => {
   const fullConfig = resolveConfig(tailwindConfig);
@@ -17,42 +18,14 @@ const QuestionsList = ({ questions }) => {
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
-
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
-    <div className="py-10 lg:flex-row lg:flex-wrap">
-      {currentQuestions.map(({ QID, title, difficulty, topicTags }) => {
-        return (
-          <div className="group flex-1 shadow-lg mb-10" key={QID}>
-            <div className="items-center space-x-2 pb-2 mx-4 group-hover:opacity-75">
-              <div className="mb-2 flex gap-2 items-center">
-                <Link href={`/questions/${QID}`} className=" flex-grow">
-                  <h2 className="font-semibold text-primary-800 dark:text-primary-100 text-lg">
-                    {QID}. {title}
-                  </h2>
-                </Link>
-                <h3
-                  style={{
-                    color: `${fullConfig.theme.colors.difficulty[difficulty]}`,
-                  }}
-                >
-                  {difficulty}
-                </h3>
-              </div>
-              <div className="mt-1 flex overflow-auto scroll-my-10 space-x-2 py-2 ">
-                {topicTags &&
-                  topicTags.map((tag) => (
-                    <TopicTag
-                      key={`${QID}-${tag}`}
-                      value={tag}
-                      className="bg-primary-400"
-                    />
-                  ))}
-              </div>
-            </div>
-          </div>
-        );
-      })}
+    <div>
+      <div className="py-4 grid grid-cols-1 md:grid-cols-2 gap-2  ">
+        {currentQuestions.map((question) => {
+          return <QuestionCard key={question.QID} {...question} />;
+        })}
+      </div>
       <Pagination
         questionsPerPage={questionsPerPage}
         totalQuestions={questions.length}
