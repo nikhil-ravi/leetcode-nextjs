@@ -36,11 +36,9 @@ export default function RootLayout({ children }) {
             <section title="Navigation Bar" className="min-w-full mx-auto">
               <nav className="flex pt-10 mb-12">
                 <div className="flex-grow">
-                  <Link href="/">
-                    <h1 className="text-xl font-burtons text-left">
-                      scuffedcode
-                    </h1>
-                  </Link>
+                  <h1 className="text-xl font-burtons text-left">
+                    <Link href="/">scuffedcode</Link>
+                  </h1>
                 </div>
                 <ul className="flex space-x-5 list-none m-0 p-0 text-right">
                   <li>
