@@ -11,6 +11,7 @@ export const QuestionBody = ({
   body,
   similarQuestions,
   topicTags,
+  paidOnly,
 }) => {
   return (
     <div className="w-full overflow-y-scroll mb-10 pr-2">
@@ -32,11 +33,20 @@ export const QuestionBody = ({
           }`}
         />
       </div>
-      <div className="mb-10">{ReactHtmlParser(body)}</div>
-      <QuestionBodyAccordian
-        similarQuestions={similarQuestions}
-        topicTags={topicTags}
-      />
+      {!paidOnly ? (
+        <>
+          <div className="mb-10">{ReactHtmlParser(body)}</div>
+          <QuestionBodyAccordian
+            similarQuestions={similarQuestions}
+            topicTags={topicTags}
+          />
+        </>
+      ) : (
+        <p className="text-center py-10">
+          This question is not available as it is for paid customers of Leetcode
+          only.
+        </p>
+      )}
     </div>
   );
 };

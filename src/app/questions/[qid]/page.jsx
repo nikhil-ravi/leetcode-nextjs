@@ -25,11 +25,14 @@ export default async function QuestionsPage({ params: { qid } }) {
             difficulty={data[0]["difficulty"]}
             similarQuestions={similarQuestions}
             topicTags={data[0]["topicTags"]}
+            paidOnly={data[0]["paidOnly"]}
           />
-          <SolutionWrapper
-            solutions={data[0].solutions}
-            codeStub={data[0].Code}
-          />
+          {!data[0]["paidOnly"] && (
+            <SolutionWrapper
+              solutions={data[0].solutions}
+              codeStub={data[0].Code}
+            />
+          )}
         </div>
       )}
     </div>

@@ -36,13 +36,17 @@ export default function Home() {
             icon={<BsSearch />}
             onChange={(event) => setSearchTerm(event.target.value)}
           />
-          <Link href={`/questions/${Math.floor(Math.random() * data.length)}`}>
-            <Tooltip content="Pick a question at random">
-              <IconButton variant="outlined" color="gray">
-                <FaRandom />
-              </IconButton>
-            </Tooltip>
-          </Link>
+          {data && (
+            <Link
+              href={`/questions/${Math.floor(Math.random() * data.length)}`}
+            >
+              <Tooltip content="Pick a question at random">
+                <IconButton variant="outlined" color="gray">
+                  <FaRandom />
+                </IconButton>
+              </Tooltip>
+            </Link>
+          )}
         </div>
         {isLoading ? (
           <p className="text-center p-10">Loading...</p>
