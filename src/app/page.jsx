@@ -11,7 +11,6 @@ import Link from "next/link";
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setLoading] = useState(false);
-  const [randomEl, setRandomEl] = useState(1);
   const [data, setData] = useState([]);
   useEffect(() => {
     setLoading(true);
@@ -21,7 +20,6 @@ export default function Home() {
     }
     getData(searchTerm).then((data) => {
       setData(data);
-      setRandomEl(Math.floor(Math.random() * data.length));
       setLoading(false);
     });
   }, [searchTerm]);
@@ -38,13 +36,13 @@ export default function Home() {
             icon={<BsSearch />}
             onChange={(event) => setSearchTerm(event.target.value)}
           />
-          <Tooltip content="Pick a question at random">
-            <IconButton variant="outlined" color="gray">
-              <Link href={`/questions/${randomEl}`}>
+          <Link href={`/questions/${Math.floor(Math.random() * data.length)}`}>
+            <Tooltip content="Pick a question at random">
+              <IconButton variant="outlined" color="gray">
                 <FaRandom />
-              </Link>
-            </IconButton>
-          </Tooltip>
+              </IconButton>
+            </Tooltip>
+          </Link>
         </div>
         {isLoading ? (
           <p className="text-center p-10">Loading...</p>
