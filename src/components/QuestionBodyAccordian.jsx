@@ -7,7 +7,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 import Link from "next/link";
-import TopicTag from "@/components/TopicTags";
+import TopicTag from "./TopicTags";
 
 export default function QuestionBodyAccordian({ similarQuestions, topicTags }) {
   const [open, setOpen] = useState(0);

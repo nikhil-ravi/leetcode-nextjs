@@ -1,7 +1,7 @@
 import { useState } from "react";
 import resolveConfig from "tailwindcss/resolveConfig";
 import tailwindConfig from "../../tailwind.config.js";
-import Pagination from "@/components/Pagination";
+import Pagination from "./Pagination";
 import Link from "next/link.js";
 import TopicTag from "./TopicTags.jsx";
 
@@ -17,6 +17,7 @@ const QuestionsList = ({ questions }) => {
     indexOfFirstQuestion,
     indexOfLastQuestion
   );
+
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div className="py-10 lg:flex-row lg:flex-wrap">
@@ -39,13 +40,14 @@ const QuestionsList = ({ questions }) => {
                 </h3>
               </div>
               <div className="mt-1 flex overflow-auto scroll-my-10 space-x-2 py-2 ">
-                {topicTags.map((tag) => (
-                  <TopicTag
-                    key={`${QID}-${tag}`}
-                    value={tag}
-                    className="bg-primary-400"
-                  />
-                ))}
+                {topicTags &&
+                  topicTags.map((tag) => (
+                    <TopicTag
+                      key={`${QID}-${tag}`}
+                      value={tag}
+                      className="bg-primary-400"
+                    />
+                  ))}
               </div>
             </div>
           </div>

@@ -1,7 +1,6 @@
-import React from "react";
 import PopoverButton from "./Popover";
 import ReactHtmlParser from "react-html-parser";
-import TopicTag from "@/components/TopicTags";
+import TopicTag from "./TopicTags";
 import QuestionBodyAccordian from "./QuestionBodyAccordian";
 
 export const QuestionBody = ({

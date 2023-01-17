@@ -7,8 +7,8 @@ export default function Head() {
       <link rel="icon" href="/favicon.ico" />
       <script
         async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2595649066418748"
-        crossorigin="anonymous"
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
+        crossOrigin="anonymous"
       ></script>
     </>
   );

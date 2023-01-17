@@ -1,7 +1,7 @@
 import { getQuestion, getSimilarQuestions } from "@/utils/controllers";
-import QuestionNavigator from "./QuestionNavigator";
-import { QuestionBody } from "./QuestionBody";
-import { SolutionWrapper } from "./SolutionWrapper";
+import QuestionNavigator from "@components/QuestionNavigator";
+import { QuestionBody } from "@components/QuestionBody";
+import { SolutionWrapper } from "@components/SolutionWrapper";
 import { notFound } from "next/navigation";
 import isInteger from "@/utils/isInteger";
 isInteger;
