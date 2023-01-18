@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import isInteger from "@/utils/isInteger";
 isInteger;
 
+export const revalidate = 0;
+
 export default async function QuestionsPage({ params: { qid } }) {
   if (!isInteger(qid)) notFound();
 

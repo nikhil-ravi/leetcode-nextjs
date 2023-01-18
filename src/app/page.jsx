@@ -4,9 +4,7 @@ import { BsSearch } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import QuestionsList from "@/components/QuestionsList";
 import { getQuestionsList } from "@/utils/controllers";
-import { IconButton, Input, Tooltip } from "@material-tailwind/react";
-import { FaRandom } from "react-icons/fa";
-import Link from "next/link";
+import { Input } from "@material-tailwind/react";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,17 +34,6 @@ export default function Home() {
             icon={<BsSearch />}
             onChange={(event) => setSearchTerm(event.target.value)}
           />
-          {data && (
-            <Link
-              href={`/questions/${Math.floor(Math.random() * data.length)}`}
-            >
-              <Tooltip content="Pick a question at random">
-                <IconButton variant="outlined" color="gray">
-                  <FaRandom />
-                </IconButton>
-              </Tooltip>
-            </Link>
-          )}
         </div>
         {isLoading ? (
           <p className="text-center p-10">Loading...</p>

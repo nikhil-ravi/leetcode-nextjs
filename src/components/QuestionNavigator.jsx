@@ -13,7 +13,7 @@ export default function QuestionNavigator({ qid }) {
       >
         <BsChevronLeft className="text-sm" />
       </Link>
-      <Link href="/questions">
+      <Link href="/">
         <div className="flex gap-3 items-center justify-center">
           <BsList className="text-sm" />
           <div className="flex-grow">Problems List</div>
