@@ -10,10 +10,16 @@ export default function QuestionNavigator({ qid }) {
           2 > 1 &&
           "hover:bg-primary-300 dark:hover:bg-primary-300  cursor-pointer "
         }`}
+        aria-label="Previous Question"
+        aria-labelledby="Previous Question"
       >
         <BsChevronLeft className="text-sm" />
       </Link>
-      <Link href="/">
+      <Link
+        href="/"
+        aria-label="Questions List"
+        aria-labelledby="Questions List"
+      >
         <div className="flex gap-3 items-center justify-center">
           <BsList className="text-sm" />
           <div className="flex-grow">Problems List</div>
@@ -25,6 +31,8 @@ export default function QuestionNavigator({ qid }) {
           2 < 3 &&
           "hover:bg-primary-300 dark:hover:bg-primary-300  cursor-pointer "
         }`}
+        aria-label="Next Question"
+        aria-labelledby="Next Question"
       >
         <BsChevronRight className="text-sm" />
       </Link>

@@ -10,13 +10,17 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
     "@material-tailwind/react": "^1.2.5",
+    "@mui/material": "^5.11.5",
     "@next/font": "13.1.2",
     "@supabase/supabase-js": "^2.4.0",
     "@uiw/codemirror-extensions-langs": "^4.19.6",
     "@uiw/codemirror-theme-github": "^4.19.6",
     "@uiw/codemirror-theme-material": "^4.19.6",
     "@uiw/react-codemirror": "^4.19.6",
+    "antd": "^5.1.5",
     "encoding": "^0.1.13",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.2",
@@ -27,6 +31,10 @@
     "react-dom": "18.2.0",
     "react-html-parser": "^2.0.2",
     "react-icons": "^4.7.1",
+    "react-markdown": "^8.0.5",
+    "react-paginate": "^8.1.4",
+    "remark-breaks": "^3.0.2",
+    "remark-gfm": "^3.0.1",
     "tailwind-scrollbar": "^2.1.0"
   },
   "devDependencies": {

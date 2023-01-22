@@ -1,14 +1,17 @@
 "use client";
-
-import { BsSearch } from "react-icons/bs";
 import { useEffect, useState } from "react";
-import QuestionsList from "@/components/QuestionsList";
 import { getQuestionsList } from "@/utils/controllers";
-import { Input } from "@material-tailwind/react";
+import QuestionsList from "./QuestionsList";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Spin } from "antd";
+import { BsSearch } from "react-icons/bs";
+
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setLoading] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(true);
   const [data, setData] = useState([]);
   useEffect(() => {
     setLoading(true);
@@ -19,32 +22,38 @@ export default function Home() {
     getData(searchTerm).then((data) => {
       setData(data);
       setLoading(false);
+      setFirstLoad(false);
     });
   }, [searchTerm]);
 
-  return (
-    <div className="min-w-full mx-auto">
-      <div className="max-w-6xl mx-auto">
-        <div>
-          <h3 className="text-center text-2xl mb-3">Questions</h3>
-        </div>
-        <div className="flex items-center gap-2">
-          <Input
-            label="Search..."
-            icon={<BsSearch />}
-            onChange={(event) => setSearchTerm(event.target.value)}
-          />
-        </div>
-        {isLoading ? (
-          <p className="text-center p-10">Loading...</p>
-        ) : !data ? (
-          <p className="text-center p-10">
-            No questions matching the current search...
-          </p>
-        ) : (
-          <QuestionsList questions={data} />
-        )}
+  return firstLoad ? (
+    <div className="mx-auto max-w-[1080px] align-center text-center pt-10">
+      <Spin indicator={antIcon} />
+    </div>
+  ) : (
+    <div className="mx-auto max-w-[1080px]">
+      <div className="flex gap-4 items-center text-center justify-center w-full">
+        <BsSearch className="flex-shrink" />
+        <input
+          label="Search Term"
+          aria-label="Search for questions"
+          aria-labelledby="Search for questions"
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+          className="flex-grow bg-primary-300 dark:bg-primary-900 items-center p-1 rounded-lg"
+        />
       </div>
+      {isLoading ? (
+        <div className="align-center text-center pt-10">
+          <Spin indicator={antIcon} />
+        </div>
+      ) : !data ? (
+        <p className="text-center p-10">
+          No questions matching the current search...
+        </p>
+      ) : (
+        <QuestionsList questions={data} />
+      )}
     </div>
   );
 }

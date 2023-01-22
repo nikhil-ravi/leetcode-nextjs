@@ -1,12 +1,12 @@
 import { getQuestion, getSimilarQuestions } from "@/utils/controllers";
 import QuestionNavigator from "@/components/QuestionNavigator";
 import { QuestionBody } from "@/components/QuestionBody";
-import { SolutionWrapper } from "@/components/SolutionWrapper";
 import { notFound } from "next/navigation";
 import isInteger from "@/utils/isInteger";
+import SolutionShowcase from "@/components/SolutionShowcase";
 isInteger;
 
-export const revalidate = 0;
+export const revalidate = 2500;
 
 export default async function QuestionsPage({ params: { qid } }) {
   if (!isInteger(qid)) notFound();
@@ -29,8 +29,9 @@ export default async function QuestionsPage({ params: { qid } }) {
             topicTags={data[0]["topicTags"]}
             paidOnly={data[0]["paidOnly"]}
           />
+          {/* <SolutionTabs /> */}
           {!data[0]["paidOnly"] && (
-            <SolutionWrapper
+            <SolutionShowcase
               solutions={data[0].solutions}
               codeStub={data[0].Code}
             />

@@ -19,13 +19,9 @@ const QuestionCard = ({
   topicTags,
   paidOnly,
   solutionAvailable,
-  key,
 }) => {
   return (
-    <Card
-      key={key}
-      className="mx-auto w-[320px] lg:w-[460px] bg-inherit border-gray-700 border-2 shadow-lg z-10 pb-4 "
-    >
+    <Card className="mx-auto w-[320px] lg:w-[460px] bg-inherit border-gray-700 border-2 shadow-lg z-10 pb-4 ">
       <CardHeader
         floated={false}
         className="bg-inherit flex justify-between shadow-none items-center"
@@ -61,10 +57,7 @@ const QuestionCard = ({
         </Typography>
       </CardHeader>
       <CardBody className="border-y-2 border-y-gray-400 dark:border-y-gray-700 ">
-        <Typography
-          variant="h4"
-          className="text-primary-800 dark:text-primary-100"
-        >
+        <Typography className="text-primary-800 dark:text-primary-100 text-xl">
           <Link href={`/questions/${QID}`} className="flex-grow">
             {QID}. {title}
           </Link>
